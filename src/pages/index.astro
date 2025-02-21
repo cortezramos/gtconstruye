@@ -1,28 +1,42 @@
 ---
-import Cases from "../components/sections/Cases.astro";
-import Contact from "../components/sections/Contact.astro";
-import Hero from "../components/sections/Hero.astro";
-import Process from "../components/sections/Process.astro";
-import Proposal from "../components/sections/Proposal.astro";
-import Services from "../components/sections/Services.astro";
-import Sponsors from "../components/sections/Sponsors.astro";
-import Team from "../components/sections/Team.astro";
-import Testimonials from "../components/sections/Testimonials.astro";
-import MainLayout from "../layouts/MainLayout.astro";
-import "../styles/globals.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const proyectos = [
+  {
+    titulo: 'Edificio Residencial "Las Palmeras"',
+    imagen: "/images/edificio1.jpg",
+    descripcion:
+      "Moderno edificio de apartamentos de lujo en una ubicación privilegiada.",
+  },
+  {
+    titulo: 'Complejo Industrial "El Progreso"',
+    imagen: "/images/edificio2.jpg",
+    descripcion:
+      "Espacios funcionales y adaptables para empresas de diversos sectores.",
+  },
+  // ... más proyectos
+];
 ---
 
-<MainLayout
-  title="GT Construye"
-  description="GT Construye ofrece servicios de construcción y materiales de primera calidad"
->
-  <Hero />
-  <Sponsors />
-  <Services />
-  <Proposal />
-  <Cases />
-  <Process />
-  <Team />
-  <Testimonials />
-  <Contact />
-</MainLayout>
+<html lang="es">
+  <head>
+    <title>Constructora Ejemplo</title>
+    <link rel="stylesheet" href="src/styles/global.css" />
+  </head>
+  <body>
+    <Navbar />
+    <Hero />
+
+    <section class="proyectos">
+      <h2>Nuestros Proyectos</h2>
+      <div class="grid">
+        {proyectos.map((proyecto) => <ProjectCard proyecto={proyecto} />)}
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
